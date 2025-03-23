@@ -1,0 +1,248 @@
+/* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-bottom: 3px solid #FFD700;
+    transition: height 0.5s ease-in-out;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    transition: padding 0.5s ease-in-out;
+}
+
+/* Logo inicial */
+.img-logo {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    border-style: solid; 
+    border-color:  #FFD700; 
+    border-radius: 50%;
+    margin-left: 25px;
+    object-fit: cover;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+/* Lista de navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+    transition: font-size 0.5s ease-in-out;
+}
+
+nav ul li {
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.5s ease-in-out;
+}
+
+nav ul li a {
+    text-decoration: none; 
+    color: inherit; 
+
+}
+
+nav ul li a:visited {
+    color: inherit; 
+}
+
+/* Efeito ao passar o mouse sobre a navbar */
+header:hover {
+    height: 150px; 
+}
+
+header:hover nav {
+    padding: 20px 20px;
+}
+
+header:hover .img-logo {
+    width: 100px;
+    height: 100px;
+}
+
+header:hover nav ul {
+    font-size: 40px;
+}
+
+/* Efeito ao passar o mouse sobre cada item da navbar */
+nav ul li:hover {
+    color: #FFD700;
+    transform: scale(1.3);
+}
+
+/* Efeito ao passar o mouse sobre a imagem */
+.img-logo:hover {
+    border-width: 3px;
+    border-style: solid; 
+    border-color:  #FFD700; 
+    transform: scale(1.4);
+}
+
+/* Estilização da seção Home */
+#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url('IMG/home-bg.jpg') no-repeat center center/cover;
+    position: relative;
+    padding: 300px;
+}
+
+.left-container,
+.right-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    color: white;
+}
+
+.left-container:hover,
+.right-container:hover {
+    transform: scale(1.4);
+    cursor: pointer;
+    
+}
+
+/* Título e parágrafo da parte esquerda */
+.left-h1, .right-h1 {
+    font-size: 3rem; 
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFD700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.p-text {
+    font-size: 20px; 
+    font-weight: bold;
+    margin-top: 0px;
+    text-align: left; 
+    color: #dcdcdc;
+}
+
+#sobre, #projetos, #contato {
+    background: url('IMG/sobre-bg.jpg') no-repeat center center/cover;
+}
+
+/* Adicionando um overlay escuro para melhorar a visibilidade do texto */
+section::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 20.5);
+}
+
+/* Ajustando o texto para ficar acima do overlay */
+section h1, section p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+    }
+
+    nav {
+        flex-direction: initial;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .img-logo {
+        width: 60px;
+        height: 60px;
+        margin-left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 0;
+    }
+
+    nav ul li {
+        font-size: 18px;
+    }
+
+    #home {
+        flex-direction: column;
+        padding: 50px 20px;
+        height: auto;
+    }
+
+    .left-container,
+    .right-container {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .left-h1, .right-h1 {
+        font-size: 2.5rem;
+    }
+
+    .p-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-h1, .right-h1 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .p-text {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    nav ul li {
+        font-size: 18px;
+        margin-right: 50px;
+    }
+
+    .img-logo {
+        width: 150px;
+        height: 150px;
+        margin-left: 40px;
+    }
+    /* Efeito ao passar o mouse sobre a navbar */
+    header:hover {
+    height: 250px; 
+}
+
+    .left-container:hover,
+    .right-container:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
