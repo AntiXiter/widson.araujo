@@ -33,3 +33,44 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+const projectList = document.querySelector(".projetos-lista");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+
+let isAnimating = false;
+
+function updateCarousel(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    if (direction === "next") {
+        projectList.style.transition = "transform 0.5s ease-in-out";
+        projectList.style.transform = "translateX(-310px)"; // Move para a esquerda (ajuste conforme o tamanho do card)
+
+        setTimeout(() => {
+            let firstProject = projectList.firstElementChild;
+            projectList.appendChild(firstProject); // Move o primeiro para o final
+            projectList.style.transition = "none";
+            projectList.style.transform = "translateX(0)"; // Reseta posição instantaneamente
+            isAnimating = false;
+        }, 500); // Tempo da animação
+    } else {
+        let lastProject = projectList.lastElementChild;
+        projectList.style.transition = "none";
+        projectList.style.transform = "translateX(-310px)"; // Posiciona o último à esquerda instantaneamente
+        projectList.insertBefore(lastProject, projectList.firstElementChild);
+
+        setTimeout(() => {
+            projectList.style.transition = "transform 0.5s ease-in-out";
+            projectList.style.transform = "translateX(0)"; // Move suavemente de volta
+            setTimeout(() => {
+                isAnimating = false;
+            }, 500);
+        });
+    }
+}
+
+// Eventos de clique
+nextBtn.addEventListener("click", () => updateCarousel("next"));
+prevBtn.addEventListener("click", () => updateCarousel("prev"));

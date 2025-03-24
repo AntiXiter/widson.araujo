@@ -11,11 +11,12 @@ body {
 }
 
 header {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #111 0%, #333 50%, #3a3737 70%); /* Gradiente dark */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais escura */
     overflow: hidden;
-    border-bottom: 3px solid #FFD700;
-    transition: height 0.5s ease-in-out;
+    color: #f4f4f4;
+    border-bottom: 3px solid #ffffff; 
+    transition: height 0.5s ease-in-out, background 0.5s ease-in-out;
 }
 
 nav {
@@ -32,7 +33,7 @@ nav {
     height: 80px;
     border-width: 2px;
     border-style: solid; 
-    border-color:  #FFD700; 
+    border-color:  #ffffff; 
     border-radius: 50%;
     margin-left: 25px;
     object-fit: cover;
@@ -58,7 +59,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none; 
-    color: inherit; 
+    color: white; 
 
 }
 
@@ -69,6 +70,7 @@ nav ul li a:visited {
 /* Efeito ao passar o mouse sobre a navbar */
 header:hover {
     height: 150px; 
+    border-bottom: 3px solid #f4f4f4; 
 }
 
 header:hover nav {
@@ -86,7 +88,7 @@ header:hover nav ul {
 
 /* Efeito ao passar o mouse sobre cada item da navbar */
 nav ul li:hover {
-    color: #FFD700;
+    color: #f4f4f4;
     transform: scale(1.3);
 }
 
@@ -94,7 +96,7 @@ nav ul li:hover {
 .img-logo:hover {
     border-width: 3px;
     border-style: solid; 
-    border-color:  #FFD700; 
+    border-color:  #c0bebe; 
     transform: scale(1.4);
 }
 
@@ -110,6 +112,19 @@ nav ul li:hover {
     padding: 300px;
 }
 
+/* Pseudo-elemento para escurecer a imagem */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade (0.5 = 50%) */
+    z-index: 1;
+}
+
+/* Ajuste dos containers para ficarem acima da camada escura */
 .left-container,
 .right-container {
     width: 40%;
@@ -118,13 +133,15 @@ nav ul li:hover {
     align-items: center; 
     justify-content: center;
     color: white;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 2;
 }
 
 .left-container:hover,
 .right-container:hover {
     transform: scale(1.4);
     cursor: pointer;
-    
 }
 
 /* Título e parágrafo da parte esquerda */
@@ -135,7 +152,7 @@ nav ul li:hover {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #FFD700;
+    color: #f4f4f4;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
@@ -144,20 +161,364 @@ nav ul li:hover {
     font-weight: bold;
     margin-top: 0px;
     text-align: left; 
-    color: #dcdcdc;
+    color: #cbcace;
 }
 
-#sobre, #projetos, #contato {
-    background: url('IMG/sobre-bg.jpg') no-repeat center center/cover;
+/* Estilização da seção Sobre Mim */
+#sobre {
+    background: linear-gradient(135deg, #111, #222); /* Gradiente escuro */
+    color: white;
+    padding: 50px 0;
+    position: relative;
 }
 
-/* Adicionando um overlay escuro para melhorar a visibilidade do texto */
-section::before {
+/* Posicionamento do h2 no canto superior esquerdo */
+section div div {
+    position: relative; /* Necessário para o posicionamento absoluto do h2 */
+}
+
+section div div h2 {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 20.5);
+    top: 15px;  /* Ajuste conforme necessário */
+    left: 15px; /* Pequena margem da borda */
+    margin: 0; /* Removendo margem padrão */
+    font-size: 1.5rem; /* Ajuste de tamanho */
+    color: #f4f4f4; /* Dourado para destacar */
 }
+
+/* Layout principal */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    height: 60vh;
+    margin-bottom: 220px;
+}
+
+/* Estilização das caixas */
+.box {
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efeito hover nas caixas */
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(199, 199, 197, 0.4);
+}
+
+/* Caixa da introdução */
+.intro {
+    background: rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+/* Caixa de habilidades */
+.habilidades {
+    background: rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+/* Estilização da lista de habilidades */
+.habilidades ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.habilidades li {
+    font-size: 1.2rem;
+    padding: 5px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito hover nos itens da lista */
+.habilidades li:hover {
+    transform: translateX(8px);
+    color: #0056b3;
+}
+
+/* Caixa de experiências */
+.experiencias {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilização dos blocos de experiência */
+.exp {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Efeito hover nos blocos de experiência */
+.exp:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Destacar títulos das experiências */
+.exp h3 {
+    color: #f4f4f4;
+}
+
+/* Caixa da imagem */
+.foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilização da imagem */
+.foto img {
+    width: 200px;
+    max-width: 250px;
+    border-radius: 15px; /* Bordas suavemente arredondadas */
+    border: 4px solid #f4f4f4;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Estilos Dark Mode */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+#projetos {
+    padding: 20px;
+    text-align: center;
+}
+
+#projetos h1, p {
+    margin-bottom: 20px;
+}
+
+.projetos-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.projetos-lista {
+    display: flex;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.projeto-card {
+    min-width: 300px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.nav-btn.left {
+    left: 0;
+}
+
+.nav-btn.right {
+    right: 0;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Ajusta tamanho das imagens */
+.projeto-img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Ajusta tamanho das imagens */
+.projeto-img:hover {
+    transform: scale(1.07);
+    filter: brightness(1.2);
+}
+
+.ver-projeto-btn {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px 10px;
+    background-color: #0056b3; /* Azul moderno */
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.ver-projeto-btn:hover {
+    background-color: #1e90ff; /* Azul mais escuro ao passar o mouse */
+    transform: scale(1.07);
+    filter: brightness(1.2);
+}
+
+
+#contato {
+    padding: 50px;
+    text-align: center;
+}
+
+.contato-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    color: #bbb;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #222;
+    color: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Efeito Hover nos Formulários */
+input:hover, textarea:hover {
+    border-color: #007bff;
+}
+
+/* Redes sociais */
+.informacoes-contato {
+    margin-top: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Efeito Hover para o botão de Envio */
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Efeito hover na imagem */
+.foto img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Estilo para o Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+    margin: 0;
+    color: #bbb;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
 
 /* Ajustando o texto para ficar acima do overlay */
 section h1, section p {
@@ -212,7 +573,14 @@ section h1, section p {
     .p-text {
         font-size: 16px;
     }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+    }
 }
+
 
 @media (max-width: 480px) {
     .left-h1, .right-h1 {
@@ -244,5 +612,50 @@ section h1, section p {
     .right-container:hover {
         transform: scale(1.1);
         cursor: pointer;
+    }
+    /* Layout das caixas */
+    .container {
+        grid-template-columns: 1fr;  /* Colocar tudo em uma coluna */
+        grid-template-rows: auto;
+        height: 150vh;
+        margin-bottom: 0px;
+    }
+
+    /* Estilização do título h2 */
+    section div div h2 {
+        font-size: 1.2rem;  /* Reduzir o tamanho do título */
+        top: 10px;  /* Ajustar o topo para telas menores */
+        left: 10px;  /* Ajustar a posição da esquerda */
+    }
+
+    /* Ajustar o padding da seção Sobre */
+    #sobre {
+        padding: 30px 0;  /* Reduzir o padding */
+    }
+
+    /* Ajustar tamanho das imagens */
+    .foto img {
+        width: 150px;  /* Ajustar a largura da imagem */
+        max-width: 200px;  /* Ajuste de largura máxima */
+    }
+
+    /* Ajustar o tamanho das caixas */
+    .box {
+        padding: 15px;  /* Reduzir o padding */
+    }
+
+    /* Ajustar o tamanho da lista de habilidades */
+    .habilidades li {
+        font-size: 1rem;  /* Reduzir o tamanho da fonte */
+    }
+
+    /* Ajuste no espaçamento das caixas */
+    .box, .exp {
+        margin-bottom: 15px;  /* Reduzir a margem inferior */
+    }
+
+    /* Ajustar o tamanho das fontes das experiências */
+    .exp h3 {
+        font-size: 1.2rem;  /* Ajustar o tamanho do título da experiência */
     }
 }
