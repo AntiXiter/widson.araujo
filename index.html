@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widson</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="cabeçalho">
+        <nav>
+            <img class="img-logo" src="IMG/code_widson-removebg-preview.png" alt="Logo Code Widson">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <!-- Div para a parte esquerda -->
+        <div class="left-container">
+            <h1 class="left-h1">Data Analyst</h1>
+            <p class="p-text">Experiência em análise de dados, construção de dashboards e automação de processos.
+                Utilizo Python, SQL e ferramentas como Pandas, NumPy e Power BI para insights e modelagem de dados.</p>
+        </div>
+
+        <!-- Div para a parte direita -->
+        <div class="right-container">
+            <h1 class="right-h1">Developer</h1>
+            <p class="p-text">Especialista em soluções escaláveis e seguras, com foco em arquitetura de software,
+                otimização de banco de dados e integração de APIs. Domínio em SQL, autenticação segura e
+                processamento assíncrono.</p>
+        </div>
+    </section>
+
+
+    <section id="sobre">
+        <div class="container">
+            <!-- Canto Superior Esquerdo - Introdução -->
+            <div class="box intro">
+                <h2>Sobre Mim</h2>
+                <p>Sou um entusiasta da tecnologia, inovação e otimização de processos. Desde o início da minha jornada,
+                    busco aprender e desenvolver soluções que facilitem o dia a dia das pessoas.</p>
+            </div>
+
+            <!-- Canto Superior Direito - Habilidades -->
+            <div class="box habilidades">
+                <h2>Habilidades</h2>
+                <ul>
+                    <li>🚀 Desenvolvimento em <strong>Python</strong></li>
+                    <li>📊 Análise de Dados e Dashboards</li>
+                    <li>🔍 Automação e Otimização de Processos</li>
+                    <li>💡 Criação de de softwares e APIs</li>
+                </ul>
+            </div>
+
+            <!-- Canto Inferior Esquerdo - Experiências -->
+            <div class="box experiencias">
+                <h2>Experiências</h2>
+                <div class="exp">
+                    <h3>Control Tower Operations</h3>
+                    <p>Atualmente, trabalho na Torre de Controle da <strong>LUFT</strong>, na área de distribuição, onde
+                        sou responsável pelo controle de todas as rotas de bases e filiais. Acompanho cada CTC e NF,
+                        oferecendo soluções e integrando informações para otimizar os
+                        processos logísticos.</p>
+                </div>
+                <div class="exp">
+                    <h3>Jovem Aprendiz - Comercial / Projetos</h3>
+                    <p>Atuei na área comercial, auxiliando na análise de projetos e aprimoramento de processos. Focado
+                        em inovaçao e novos negócios, sempre buscando inovações e soluções logisticas para os nossos
+                        clientes.</p>
+                </div>
+            </div>
+
+            <!-- Canto Inferior Direito - Imagem -->
+            <div class="box foto">
+                <img src="IMG/profile.jpg" alt="Minha Foto">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projetos">
+        <h1>Projetos</h1>
+        <p>Veja alguns dos projetos que desenvolvi ao decorrer da minha carreira.</p>
+    
+        <div class="projetos-container">
+            <!-- Botão de Navegação Esquerda -->
+            <button class="nav-btn left" id="prev"><</button>
+    
+            <div class="projetos-lista">
+                <div class="projeto-card">
+                    <h2>Flask</h2>
+                    <img src="IMG/flask-img.png" alt="Projeto 1" class="projeto-img">
+                    <p>Flask foi desenvlvido com o objetivo de proporcionar ao usuário a melhor experiência para
+                        um CRM, com sistema de acompanhamento, gestão de documentação, integrações com outros sistemas,
+                        banco de dados, vinculado e indexado diretamente na rede da empresa.
+                    </p>
+                    <a href="https://github.com/AntiXiter/Flask" target="_blank" class="ver-projeto-btn">Ver Projeto</a>
+                </div>
+                <div class="projeto-card">
+                    <h2>Meu Portifolio</h2>
+                    <img src="IMG/portifolio-img.png" alt="Projeto 2" class="projeto-img">
+                    <p>Esse mesmo projeto que você está vendo, foi feito com o objetivo de me apresentar e falar um pouco
+                        sobre o meu trabalho, oferecendo serviços na área de análise de dados e de Desenvolvimento tanto
+                        de softwares, automações, APIs etc...
+                    </p>
+                    <a href="https://github.com/seu-repo-projeto2" target="_blank" class="ver-projeto-btn">Ver Projeto</a>
+                </div>
+                <div class="projeto-card">
+                    <h2>Em Desenvolvimento</h2>
+                    <img src="IMG/null-img.png" alt="Projeto 3" class="projeto-img">
+                    <p>Um projeto de médio porte (Nada mais a dizer...)</p>
+                    <a href="https://github.com/seu-repo-projeto3" target="_blank" class="ver-projeto-btn">Ver Projeto</a>
+                </div>
+            </div>
+    
+            <!-- Botão de Navegação Direita -->
+            <button class="nav-btn right" id="next">></button>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h1>Contato</h1>
+        <p>Entre em contato comigo!</p>
+    
+        <!-- Formulário de contato -->
+        <div class="contato-container">
+            <form action="processa_contato.php" method="POST" class="form-contato">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Seu email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    
+        <!-- Redes sociais com ícones -->
+        <div class="informacoes-contato">
+            <h2>Redes Sociais</h2>
+            <p>Você também pode me encontrar nas redes sociais abaixo:</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/widsonaraujo/" target="_blank" class="social-icon">
+                    <img src="IMG/linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/AntiXiter" target="_blank" class="social-icon">
+                    <img src="IMG/github-icon.png" alt="GitHub">
+                </a>
+                <a href="https://www.instagram.com/widson.dev" target="_blank" class="social-icon">
+                    <img src="IMG/instagram-icon.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Widson. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
