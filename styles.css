@@ -619,24 +619,31 @@ section h1, section p {
         grid-template-rows: auto;
         height: 150vh;
         margin-bottom: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     /* Estilização do título h2 */
     section div div h2 {
         font-size: 1.2rem;  /* Reduzir o tamanho do título */
         top: 10px;  /* Ajustar o topo para telas menores */
-        left: 10px;  /* Ajustar a posição da esquerda */
+        margin-left: 10px;
     }
 
     /* Ajustar o padding da seção Sobre */
     #sobre {
         padding: 30px 0;  /* Reduzir o padding */
+        padding-bottom: 400px;
+    }
+    section h1, section p {
+        margin-top: 30px;
     }
 
     /* Ajustar tamanho das imagens */
     .foto img {
         width: 150px;  /* Ajustar a largura da imagem */
         max-width: 200px;  /* Ajuste de largura máxima */
+
     }
 
     /* Ajustar o tamanho das caixas */
@@ -652,10 +659,14 @@ section h1, section p {
     /* Ajuste no espaçamento das caixas */
     .box, .exp {
         margin-bottom: 15px;  /* Reduzir a margem inferior */
+        margin-top: 30px;
     }
 
     /* Ajustar o tamanho das fontes das experiências */
     .exp h3 {
         font-size: 1.2rem;  /* Ajustar o tamanho do título da experiência */
+    }
+    #projetos {
+        margin-top: 70px;
     }
 }
